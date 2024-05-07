@@ -133,6 +133,10 @@ namespace gestor_de_pacientes.Class
 
             set
             {
+                if(value.Length > 10)
+                {
+
+                }
                 this.telefone = value;
             }
         }
@@ -170,12 +174,12 @@ namespace gestor_de_pacientes.Class
 
         public void mostrarDados()
         {
+            Console.WriteLine($"ID Paciente: {this.idPaciente}");
             Console.WriteLine($"Nome: {this.nome}");
             Console.WriteLine($"Idade: {this.idade}");
             Console.WriteLine($"Risco: {this.risco}");
             Console.WriteLine($"Telefone: {this.telefone}");
             Console.WriteLine($"Email: {this.email}");
-            
         }
 
     }
