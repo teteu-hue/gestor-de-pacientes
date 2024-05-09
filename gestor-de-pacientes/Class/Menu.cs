@@ -62,7 +62,7 @@ namespace gestor_de_pacientes.Class
                         preferencial = char.Parse(Console.ReadLine().ToUpper());
                         paciente.Preferencial = preferencial;
 
-                        pacientes[posicaoArray] = paciente;
+                        filaPacientes.adicionarPaciente(paciente);
                         posicaoArray++;
                         break;
 
