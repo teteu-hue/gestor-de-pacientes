@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,6 +60,17 @@ namespace gestor_de_pacientes.Class
                     }
                 } 
                     
+            }
+        }
+
+        public void deletarPaciente(int id_paciente)
+        {
+            for (int i = 0; i < pacientes.Length; i++)
+            {
+                if (this.pacientes[i].IdPaciente == id_paciente)
+                {
+                    this.pacientes[i] = null;
+                }
             }
         }
 
