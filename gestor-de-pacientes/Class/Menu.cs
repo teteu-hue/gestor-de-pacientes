@@ -17,16 +17,6 @@ namespace gestor_de_pacientes.Class
 
             char opcao;
 
-            string nome;
-            int idade;
-            string risco;
-            string telefone;
-            string email;
-            char preferencial;
-
-
-            int posicaoArray = 0;
-
             Console.WriteLine("Gestor de fila de pacientes");
             do
             {
@@ -34,44 +24,27 @@ namespace gestor_de_pacientes.Class
                 Console.WriteLine("1 --- Cadastrar um paciente");
                 Console.WriteLine("2 --- Listar a fila de prioridade");
                 Console.WriteLine("3 --- Atender um paciente");
+                Console.WriteLine("q --- Sair do atendimento de pacientes");
 
                 opcao = char.Parse(Console.ReadLine());
 
                 switch (opcao)
                 {
                     case '1':
-                        Paciente paciente = new Paciente();
-
-                        Console.WriteLine("Nome:");
-                        paciente.Nome = Console.ReadLine();
-
-                        Console.WriteLine("Idade:");
-                        paciente.Idade = int.Parse(Console.ReadLine());
-
-                        Console.WriteLine("Risco:");
-                        paciente.Risco = Console.ReadLine();
-
-                        Console.WriteLine("Telefone:");
-                        paciente.Telefone = Console.ReadLine();
-
-                        Console.WriteLine("email:");
-                        paciente.Email = Console.ReadLine();
-
-                        Console.WriteLine("Esse paciente é preferencial?");
-                        Console.WriteLine("Digite S ou N");
-                        preferencial = char.Parse(Console.ReadLine().ToUpper());
-                        paciente.Preferencial = preferencial;
-
-                        filaPacientes.adicionarPaciente(paciente);
-                        posicaoArray++;
+                        Paciente paciente = Paciente.cadastraPaciente();
+                        filaPacientes.addPaciente(paciente);
                         break;
 
                     case '2':
-                        filaPacientes.listarPacientes();
+                        filaPacientes.showAllPacientes();
                         
                         break;
 
                     case '3':
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção incorreta, digite uma opção válida!");
                         break;
                 }
 

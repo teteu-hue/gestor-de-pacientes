@@ -86,6 +86,7 @@ namespace gestor_de_pacientes.Class
                 this.idPaciente = value;
             }
         }
+
         public string Nome
         { 
             get 
@@ -163,6 +164,8 @@ namespace gestor_de_pacientes.Class
 
             set
             {
+
+                Console.WriteLine(value);
                 
                 while (this.preferencial != 'S' && this.preferencial != 'N')
                 {
@@ -170,6 +173,33 @@ namespace gestor_de_pacientes.Class
                     this.preferencial = char.Parse(Console.ReadLine().ToUpper());
                 }
             }
+        }
+
+        public static Paciente cadastraPaciente()
+        {
+            Paciente paciente = new Paciente();
+
+            Console.WriteLine("Nome:");
+            paciente.Nome = Console.ReadLine();
+
+            Console.WriteLine("Idade:");
+            paciente.Idade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Risco:");
+            paciente.Risco = Console.ReadLine();
+
+            Console.WriteLine("Telefone:");
+            paciente.Telefone = Console.ReadLine();
+
+            Console.WriteLine("email:");
+            paciente.Email = Console.ReadLine();
+
+            Console.WriteLine("Esse paciente é preferencial?");
+            Console.WriteLine("Digite S ou N");
+            char preferencial = char.Parse(Console.ReadLine().ToUpper());
+            paciente.Preferencial = preferencial;
+
+            return paciente;
         }
 
         public void mostrarDados()

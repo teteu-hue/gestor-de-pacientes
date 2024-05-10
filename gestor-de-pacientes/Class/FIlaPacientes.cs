@@ -20,21 +20,21 @@ namespace gestor_de_pacientes.Class
             }
         }
 
-        public void listarPacientes()
+        public void showAllPacientes()
         {
 
             for(int i = 0; i < this.pacientes.Length; i++)
             {
                 if (this.pacientes[i] == null)
                 {
-                    Console.WriteLine("Acabou a fila de pacientes!");
+                    Console.WriteLine("Acabou a fila de pacientes!\n");
                     return;
                 }
                 this.pacientes[i].mostrarDados();
             }
         }
 
-        public void adicionarPaciente(Paciente paciente)
+        public void addPaciente(Paciente paciente)
         {
             for(int i = 0; i < this.pacientes.Length; i++)
             {
@@ -63,15 +63,29 @@ namespace gestor_de_pacientes.Class
             }
         }
 
-        public void deletarPaciente(int id_paciente)
+        public void deletePaciente(int id_paciente)
         {
             for (int i = 0; i < pacientes.Length; i++)
             {
                 if (this.pacientes[i].IdPaciente == id_paciente)
                 {
                     this.pacientes[i] = null;
+                    Console.WriteLine("Excluído com sucesso!");
                 }
             }
+            Console.WriteLine("Não existe no banco de dados!");
+        }
+
+        public Paciente getPaciente(int id_paciente)
+        {
+            for (int i = 0; i < pacientes.Length; i++)
+            {
+                if (this.pacientes[i].IdPaciente == id_paciente)
+                {
+                    return this.pacientes[i];
+                }
+            }
+            return null;
         }
 
     }
