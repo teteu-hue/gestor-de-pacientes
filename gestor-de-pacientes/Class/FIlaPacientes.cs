@@ -65,15 +65,25 @@ namespace gestor_de_pacientes.Class
 
         public void deletePaciente(int id_paciente)
         {
-            for (int i = 0; i < pacientes.Length; i++)
+            Paciente paciente = this.getPaciente(id_paciente);
+
+            Console.WriteLine("O próximo paciente a ser atendido é: ");
+            paciente.mostrarDados();
+            Console.WriteLine("Confirma o atendimento? S ou N?");
+            char option = char.Parse(Console.ReadLine().ToUpper());
+
+            while (option != 'S' && option != 'N')
             {
-                if (this.pacientes[i].IdPaciente == id_paciente)
-                {
-                    this.pacientes[i] = null;
-                    Console.WriteLine("Excluído com sucesso!");
-                }
+                Console.WriteLine("Digite um caractere válido!");
+                option = char.Parse(Console.ReadLine().ToUpper());
             }
-            Console.WriteLine("Não existe no banco de dados!");
+
+            if (paciente.IdPaciente == id_paciente)
+            {
+                this.pacientes[0] = null;
+                Console.WriteLine("Excluído com sucesso!");
+            }
+            
         }
 
         public Paciente getPaciente(int id_paciente)

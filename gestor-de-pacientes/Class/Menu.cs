@@ -13,13 +13,12 @@ namespace gestor_de_pacientes.Class
         public Menu()
         {
             FilaPacientes filaPacientes = new FilaPacientes();
-            Paciente[] pacientes = filaPacientes.Pacientes;
+            Console.WriteLine("Gestor de fila de pacientes");
 
             char opcao;
-
-            Console.WriteLine("Gestor de fila de pacientes");
             do
             {
+                Console.WriteLine("\n");
                 Console.WriteLine("Digite uma opção!");
                 Console.WriteLine("1 --- Cadastrar um paciente");
                 Console.WriteLine("2 --- Listar a fila de prioridade");
@@ -37,10 +36,12 @@ namespace gestor_de_pacientes.Class
 
                     case '2':
                         filaPacientes.showAllPacientes();
-                        
+
                         break;
 
                     case '3':
+                        filaPacientes.deletePaciente(filaPacientes.Pacientes[0].IdPaciente);
+
                         break;
 
                     default:
@@ -48,7 +49,7 @@ namespace gestor_de_pacientes.Class
                         break;
                 }
 
-                
+
 
             } while (opcao != 'q');
 

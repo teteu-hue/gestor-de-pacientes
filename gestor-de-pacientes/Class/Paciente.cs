@@ -164,13 +164,13 @@ namespace gestor_de_pacientes.Class
 
             set
             {
-
-                Console.WriteLine(value);
+                                   
+                this.preferencial = value;
                 
-                while (this.preferencial != 'S' && this.preferencial != 'N')
+                while (value != 'S' && value != 'N')
                 {
                     Console.WriteLine("Digite novamente S ou N");
-                    this.preferencial = char.Parse(Console.ReadLine().ToUpper());
+                    value = char.Parse(Console.ReadLine().ToUpper());
                 }
             }
         }
